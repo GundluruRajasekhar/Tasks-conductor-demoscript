@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'"><title>Conductor – Readme</title><style>:root{--bg:#eef1f4;--ink:#14202b;--mute:#4a5a68;--line:#c3ccd5;--blue:#0043ce;color-scheme:light}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "IBM Plex Sans","Segoe UI",system-ui,sans-serif}:focus-visible{outline:3px solid var(--blue);outline-offset:2px}.skip{position:absolute;left:-999px;background:var(--ink);color:#fff;padding:.5rem 1rem}.skip:focus{left:0}header{background:var(--ink);color:#fff;padding:1.25rem}header a{color:#fff;margin-right:1rem;display:inline-block;padding:.5rem 0;min-height:44px}header a[aria-current]{font-weight:700;text-decoration:underline}main{max-width:900px;margin:0 auto;padding:1.25rem;background:#fff;border:1px solid var(--line);border-radius:6px;margin-block:1.25rem}h1,h2,h3{line-height:1.25}.wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:560px}th,td{text-align:left;padding:.5rem;border-bottom:1px solid var(--line);vertical-align:top}code{background:#e6ebf0;padding:.1rem .3rem;border-radius:3px}ul,ol{padding-left:1.4rem}li{margin:.25rem 0}@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style></head><body><a class="skip" href="#main">Skip to main content</a><header><nav aria-label="Project files"><a href="index.html">App</a><a href="requirements.html">Requirements</a><a href="readme.html" aria-current="page">Readme</a><a href="tasks.html">Tasks</a></nav></header><main id="main" tabindex="-1"><h1>Conductor: AI agent control desk</h1>
+<p>Built for the IBM watsonx Orchestrate challenge: <em>AI agents should create value, not operational headaches.</em></p>
+<p>Conductor shows how one control desk can <strong>build visibility, orchestrate, manage and govern</strong> agents from any platform.</p>
+<h2>What it does</h2>
+<ol>
+<li><strong>Registry:</strong> see every agent, where it runs, its risk and its net value per month. Pause or resume any agent.</li>
+<li><strong>Orchestration:</strong> send a task by skill. Conductor picks the active agent with the best net value.</li>
+<li><strong>Governance:</strong> a per-agent spend cap blocks overspend. Risky tasks wait for a human to approve or reject.</li>
+<li><strong>Audit trail:</strong> every decision is logged with a time.</li>
+<li><strong>Self-tests:</strong> one button runs 15 checks on the routing, policy and input rules.</li>
+</ol>
+<h2>Run it</h2>
+<p>Open <code>index.html</code> in any modern browser. No install, no build, no network.</p>
+<h2>How it maps to the problem statement</h2>
+<div class="wrap"><table><thead><tr><th scope="col">Challenge theme</th><th scope="col">Feature</th></tr></thead><tbody>
+<tr><td>Wherever they are built or run</td><td>Origin column covers watsonx Orchestrate, Python, LangChain and SaaS agents</td></tr>
+<tr><td>Orchestrate</td><td>Skill-based routing by net value</td></tr>
+<tr><td>Manage</td><td>Pause, resume, spend caps, value metrics</td></tr>
+<tr><td>Govern</td><td>Approval queue and audit trail</td></tr>
+<tr><td>Value, not headaches</td><td>Net value is the headline number</td></tr>
+</tbody></table></div>
+<h2>Security</h2>
+<p>CSP with <code>default-src 'none'</code>, no <code>innerHTML</code> or <code>eval</code>, sanitised and range-checked input, no storage, no network.</p>
+<h2>Accessibility</h2>
+<p>Skip link, landmarks, labelled controls, live regions, visible focus, 44 px targets, AA contrast, reduced motion.</p>
+<h2>Tests</h2>
+<p>Press <strong>Run self-tests</strong> on the page. Expected: <code>15 of 15 tests passed.</code></p>
+<h2>Project files</h2>
+<p><code>index.html</code> (app) · <code>requirements.md</code> · <code>readme.md</code> · <code>tasks.md</code></p>
+<h2>Next steps</h2>
+<p>Connect to the real watsonx Orchestrate APIs, add sign-in and role-based approvals, and persist the audit trail.</p>
+<h2>Demo video script (3 minutes)</h2>
+<p><strong>0:00-0:15 Hook.</strong> "Every day, teams lose time and money because AI agents are scattered across platforms, and nobody can see what they cost, what they are allowed to do, or who approved it. What if one conductor coordinated them all? Hi everyone, I'm Rajasekhar, and this is Conductor."</p>
+<p><strong>0:15-0:45 Problem.</strong> "I built an AI agent control desk that acts like a project manager for your agents. Teams face three problems: agent sprawl, overspending, and no accountability for risky actions. Managers cannot see the value and compliance teams cannot see the trail. Conductor solves this from one place."</p>
+<p><strong>0:45-1:45 Demo (do live, slowly).</strong></p>
+<ol>
+<li>Registry: "Every agent shows where it runs, its risk and its net value per month."</li>
+<li>Send a Finance task at $20: "Conductor picks the active agent with the best net value, runs it and logs it."</li>
+<li>Send an HR task: "This agent is high risk, so the task waits for a human." Click Approve.</li>
+<li>Set the cap to 100 and send Finance again: "A spend cap stops the task before it costs more than allowed."</li>
+<li>Send a Sales task: "That agent is paused, so Conductor refuses and says why."</li>
+<li>Scroll to the audit trail: "Every decision is recorded with a time."</li>
+</ol>
+<p><strong>1:45-2:20 Technical excellence.</strong> Show the four files. "Logic is separate from the interface. Security comes from a strict content security policy, no unsafe code execution and validated input. It is one small file with no dependencies, built for keyboard and screen-reader use, with 15 built-in tests." Click Run self-tests and show "15 of 15 tests passed."</p>
+<p><strong>2:20-2:45 Innovation.</strong> "Conductor does not just list agents, it governs them. Next: real watsonx Orchestrate APIs, sign-in with role-based approvals, and a saved audit trail, making it an enterprise-ready control layer."</p>
+<p><strong>2:45-3:00 Closing.</strong> "Conductor turns agent chaos into value you can see, spend you can control and decisions you can audit. AI agents should create value, not operational headaches. Thank you."</p>
+<h3>Recording tips</h3>
+<p>Speak slightly slower than normal and smile. Record at 1080p with the browser at 125% zoom and no other tabs. Add a 5-second title card with your name and "Conductor". Keep music at 10-15% under the voice. Practise the six demo clicks twice.</p>
+<h2>Narration script with sound cues and roles</h2>
+<p>Sound plan: soft corporate-technology music at 10-15% under the voice. Short chime on Approve, soft click on Pause, low tone when a task is blocked. Voice at 85-90%. The page also has a <strong>Listen</strong> button that reads the narration aloud with the browser voice (no file, no network).</p>
+<div class="wrap"><table><thead><tr><th scope="col">Role</th><th scope="col">Responsibility in Conductor</th><th scope="col">Where on screen</th></tr></thead><tbody>
+<tr><td>Operations lead</td><td>Owns the registry; sees origin, risk and net value; pauses or resumes agents</td><td>Agent registry</td></tr>
+<tr><td>Orchestrator (Conductor)</td><td>Routes each task to the active agent with the best net value for the skill</td><td>Send a task</td></tr>
+<tr><td>Finance owner</td><td>Sets the monthly spend cap; blocked tasks explain why</td><td>Send a task, audit trail</td></tr>
+<tr><td>Risk and compliance owner</td><td>Approves or rejects high-risk work</td><td>Approval queue</td></tr>
+<tr><td>Everyone</td><td>Reads the shared record of every decision</td><td>Audit trail</td></tr>
+<tr><td>Quality check</td><td>Runs 15 self-tests</td><td>Self-tests</td></tr>
+</tbody></table></div>
+<p><strong>[Music up, title card: "Conductor - AI agent control desk"]</strong></p>
+<p>"Hi everyone, I'm Rajasekhar. Conductor is one control desk for every AI agent, wherever it was built or runs."</p>
+<p><strong>[Registry on screen]</strong></p>
+<p>"The operations lead owns the registry. They see where each agent runs, its risk and its net value, and can pause or resume any agent." <strong>[soft click on Pause]</strong></p>
+<p><strong>[Send a Finance task]</strong></p>
+<p>"Conductor is the orchestrator. It reads the skill the task needs and routes it to the active agent with the best net value."</p>
+<p><strong>[Lower the cap, send again]</strong> <strong>[low tone]</strong></p>
+<p>"The finance owner sets the spend cap. If a task would pass it, Conductor stops it and explains why."</p>
+<p><strong>[Send an HR task, click Approve]</strong> <strong>[chime]</strong></p>
+<p>"The risk and compliance owner decides on risky work. High-risk tasks wait in the approval queue until a human approves or rejects them."</p>
+<p><strong>[Scroll to the audit trail]</strong></p>
+<p>"The audit trail is the shared record. Every route, pause, approval and rejection is logged with a time."</p>
+<p><strong>[Click Run self-tests]</strong></p>
+<p>"Fifteen self-tests confirm that routing, policy and input rules work."</p>
+<p><strong>[Music swells, closing card]</strong></p>
+<p>"Together, these roles turn agent chaos into value you can see, spend you can control and decisions you can audit. AI agents should create value, not operational headaches. Thank you."</p>
+<h2>Winning narration v2: orchestration, architecture, autonomy, impact</h2>
+<p>Wording note: the "intelligence" and "autonomy" here are policy-driven rules (best net value, spend caps, risk thresholds), not a trained model. Say "policy-driven" if a judge asks, and present real AI agents as the next step.</p>
+<p>Sound plan: low technology-style music at 10-15%. Soft rising tone at the hook, chime on every automatic approval, soft click on Pause, low tone when a cap blocks a task, confirmation chime on a human Approve, short swell at the closing card. Voice at 85-90%, slightly slower than normal.</p>
+<p><strong>0:00-0:15 Hook</strong> [music in, title card "Conductor - AI agent control desk"]</p>
+<p>"Teams are adding AI agents faster than they can govern them. Hi everyone, I'm Rajasekhar, and this is Conductor, one control desk to orchestrate, govern and measure every agent."</p>
+<p><strong>0:15-0:40 Problem</strong> [registry on screen]</p>
+<p>"Agents live on different platforms. Nobody sees what they cost, what they may do, or who approved it. The result is sprawl, overspend and risk, not value."</p>
+<p><strong>0:40-1:20 AI orchestration intelligence</strong> [send a Finance task, $20] [chime]</p>
+<p>"Conductor reads the skill the task needs, ignores paused agents and routes to the agent with the best net value. The choice is explainable, so every routing decision can be defended."</p>
+<p><strong>1:20-1:50 Autonomous decision-making with guardrails</strong> [lower the cap and send again] [low tone] [send an HR task, click Approve] [confirmation chime]</p>
+<p>"Low-risk work inside budget is approved automatically. Over the cap, Conductor stops it. High-risk work goes to a human. Autonomy where it is safe, a person where it matters."</p>
+<p><strong>1:50-2:20 Enterprise architecture</strong> [show the four files]</p>
+<p>"Routing, policy and interface are separate layers. Every agent is a plain record, so any platform fits behind the same contract. Security is built in: a strict content security policy, validated input and a full audit trail. The next step connects to watsonx Orchestrate APIs and company sign-in." [click Run self-tests: 15 of 15]</p>
+<p><strong>2:20-2:45 Measurable business impact</strong> [point at the dashboard numbers]</p>
+<p>"The dashboard shows net value per month, tasks handled automatically, spend stopped by caps and human decisions made. Leaders can see the value in numbers, not promises."</p>
+<p><strong>2:45-3:00 Closing</strong> [music swell]</p>
+<p>"Conductor turns agent chaos into value you can see, spend you can control and decisions you can audit. AI agents should create value, not operational headaches. Thank you."</p>
+<h3>Role table</h3>
+<div class="wrap"><table><thead><tr><th scope="col">Role</th><th scope="col">Responsibility</th><th scope="col">Where on screen</th></tr></thead><tbody>
+<tr><td>Operations lead</td><td>Owns the registry; pauses or resumes agents</td><td>Agent registry</td></tr>
+<tr><td>Orchestrator (Conductor)</td><td>Routes by skill and net value</td><td>Send a task</td></tr>
+<tr><td>Finance owner</td><td>Sets the spend cap</td><td>Send a task</td></tr>
+<tr><td>Risk and compliance owner</td><td>Approves or rejects high-risk work</td><td>Approval queue</td></tr>
+<tr><td>Leadership</td><td>Reads the impact numbers</td><td>Value at a glance</td></tr>
+</tbody></table></div></main></body></html>

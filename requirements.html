@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'"><title>Conductor – Requirements</title><style>:root{--bg:#eef1f4;--ink:#14202b;--mute:#4a5a68;--line:#c3ccd5;--blue:#0043ce;color-scheme:light}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "IBM Plex Sans","Segoe UI",system-ui,sans-serif}:focus-visible{outline:3px solid var(--blue);outline-offset:2px}.skip{position:absolute;left:-999px;background:var(--ink);color:#fff;padding:.5rem 1rem}.skip:focus{left:0}header{background:var(--ink);color:#fff;padding:1.25rem}header a{color:#fff;margin-right:1rem;display:inline-block;padding:.5rem 0;min-height:44px}header a[aria-current]{font-weight:700;text-decoration:underline}main{max-width:900px;margin:0 auto;padding:1.25rem;background:#fff;border:1px solid var(--line);border-radius:6px;margin-block:1.25rem}h1,h2,h3{line-height:1.25}.wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:560px}th,td{text-align:left;padding:.5rem;border-bottom:1px solid var(--line);vertical-align:top}code{background:#e6ebf0;padding:.1rem .3rem;border-radius:3px}ul,ol{padding-left:1.4rem}li{margin:.25rem 0}@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style></head><body><a class="skip" href="#main">Skip to main content</a><header><nav aria-label="Project files"><a href="index.html">App</a><a href="requirements.html" aria-current="page">Requirements</a><a href="readme.html">Readme</a><a href="tasks.html">Tasks</a></nav></header><main id="main" tabindex="-1"><h1>Requirements: Conductor</h1>
+<h2>1. Problem statement</h2>
+<p>AI agents should create value, not operational headaches. Teams now run agents built on many platforms, and nobody can see which ones exist, what they cost, which are risky, or who approved what. IBM watsonx Orchestrate exists to build, deploy, orchestrate, manage and govern agents wherever they are built or run. Conductor is a working prototype of that control desk.</p>
+<h2>2. Users</h2>
+<ul>
+<li><strong>Operations lead:</strong> wants one view of every agent and its net value.</li>
+<li><strong>Risk or compliance owner:</strong> wants approvals for risky actions and an audit trail.</li>
+<li><strong>Finance owner:</strong> wants spend caps per agent.</li>
+</ul>
+<h2>3. Functional requirements</h2>
+<div class="wrap"><table><thead><tr><th scope="col">ID</th><th scope="col">Requirement</th><th scope="col">Acceptance check</th></tr></thead><tbody>
+<tr><td>FR-1</td><td>Registry lists agents from any platform with skill, risk, net value and status</td><td>Table shows 5 agents with origin column</td></tr>
+<tr><td>FR-2</td><td>User can pause and resume an agent</td><td>Paused agent never receives routed work</td></tr>
+<tr><td>FR-3</td><td>Orchestrator routes a task to the active agent with the highest net value for that skill</td><td>Test: route picks highest net value</td></tr>
+<tr><td>FR-4</td><td>Spend cap blocks a task that would exceed the per-agent monthly limit</td><td>Test: decide blocks over cap</td></tr>
+<tr><td>FR-5</td><td>Tasks at or above the chosen risk level wait in an approval queue</td><td>Test: high risk becomes pending</td></tr>
+<tr><td>FR-6</td><td>Approve or reject updates spend and the audit trail</td><td>Log entry appears for each decision</td></tr>
+<tr><td>FR-7</td><td>Every route, pause, resume, approval and rejection is logged with time</td><td>Audit trail shows newest first</td></tr>
+<tr><td>FR-8</td><td>Built-in self-tests run from the page</td><td>15 of 15 tests pass</td></tr>
+<tr><td>FR-9</td><td>A 3-minute demo script is included (readme.md and the page)</td><td>Script covers hook, problem, demo, technical, innovation, closing</td></tr>
+<tr><td>FR-11</td><td>Dashboard shows tasks handled automatically, spend stopped by caps and human decisions made</td><td>Counters change after each task and decision</td></tr>
+<tr><td>FR-10</td><td>Page reads the roles-and-responsibilities narration aloud with Listen and Stop controls</td><td>Speech starts and stops; unsupported browsers show a text message</td></tr>
+</tbody></table></div>
+<h2>4. Non-functional requirements</h2>
+<p><strong>Security</strong></p>
+<ul>
+<li>Content Security Policy blocks all network access, remote scripts and form posts.</li>
+<li>No <code>innerHTML</code>, <code>eval</code> or inline event attributes. All user text is written with <code>textContent</code>.</li>
+<li>Input is length-limited, stripped of control characters and angle brackets, and range-validated.</li>
+<li>No data leaves the browser and nothing is stored.</li>
+</ul>
+<p><strong>Accessibility (WCAG 2.2 AA target)</strong></p>
+<ul>
+<li>Skip link, landmarks, one <code>h1</code>, ordered headings, table caption and row headers.</li>
+<li>Every control has a visible label; buttons have descriptive accessible names.</li>
+<li>Live regions announce queue, log and test results; errors use <code>role="alert"</code>.</li>
+<li>44 px minimum targets, visible focus ring, contrast of at least 4.5:1, reduced-motion respected, works at 200% zoom.</li>
+</ul>
+<p><strong>Efficiency</strong></p>
+<ul>
+<li>One file, under 20 KB, zero dependencies, zero requests.</li>
+<li>Rendering uses <code>replaceChildren</code>; the audit trail is capped at 50 entries.</li>
+</ul>
+<p><strong>Code quality</strong></p>
+<ul>
+<li>Pure functions (<code>route</code>, <code>decide</code>, <code>validate</code>, <code>sanitize</code>, <code>netValue</code>) separated from DOM code.</li>
+<li>Strict mode, no globals beyond state, consistent naming.</li>
+</ul>
+<h2>5. Out of scope</h2>
+<p>Real agent execution, authentication and persistent storage. These belong to the production platform.</p>
+<h2>6. Success criteria</h2>
+<p>All FR checks pass, self-tests report 15 of 15, keyboard-only use completes every flow, and a screen reader announces every state change.</p></main></body></html>
